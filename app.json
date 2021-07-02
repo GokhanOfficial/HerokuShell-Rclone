@@ -21,23 +21,23 @@
       "RCLONE_CONFIG_BASE64": {
         "description": "Your Rclone config encoded using Base64",
         "required": false
-      }
+      },
       "RCLONE_SERACC1_BASE64": {
         "description": "Your Rclone service account encoded using Base64",
         "required": false
-      }
+      },
       "RCLONE_SERACC2_BASE64": {
         "description": "Your Rclone service account encoded using Base64",
         "required": false
-      }
+      },
       "RCLONE_SERACC3_BASE64": {
         "description": "Your Rclone service account encoded using Base64",
         "required": false
-      }
+      },
       "RCLONE_SERACC4_BASE64": {
         "description": "Your Rclone service account encoded using Base64",
         "required": false
-      }
+      },
       "RCLONE_SERACC5_BASE64": {
         "description": "Your Rclone service account encoded using Base64",
         "required": false
