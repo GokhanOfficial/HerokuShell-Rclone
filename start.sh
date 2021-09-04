@@ -27,6 +27,11 @@ if [[ -n $RCLONE_SERACC5_BASE64 ]]; then
 	echo "Rclone service account detected"
 	echo "$(echo $RCLONE_SERACC5_BASE64|base64 -d)" >> /app/.config/rclone/rclone5.json
 fi
+if [[ -n $YTDL_COOKIES ]]; then
+	echo "Youtube cookies detected"
+	echo "$(echo $YTDL_COOKIES|base64 -d)" >> /app/ytdl.txt
+fi
+
 
 if [[ -n $BOT_TOKEN && -n $OWNER_ID ]]; then
 	echo "Bot token and owner ID detected"
