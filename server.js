@@ -34,8 +34,9 @@ bot.on("updateError", function (err) {
   console.error("Error when updating:", err);
 });
 
-bot.on("synced", function () {
+bot.on("synced", function (msg, reply, next) {
   console.log("Bot ready.");
+  reply.html("Bot Started.");
 });
 
 function rootHook(msg, reply, next) {
@@ -43,8 +44,6 @@ function rootHook(msg, reply, next) {
 
   var id = msg.chat.id;
   var allowed = id === owner || granted[id];
-    
-  reply.to(owner).html("Bot Started.");
 
   // If this message contains a token, check it
   if (!allowed && msg.command === "start" && Object.hasOwnProperty.call(tokens, msg.args())) {
