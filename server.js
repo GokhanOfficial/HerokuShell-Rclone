@@ -30,16 +30,6 @@ var defaultCwd = process.env.HOME || process.cwd();
 
 var fileUploads = {};
 
-bot.on("updateError", function (err) {
-  console.error("Error when updating:", err);
-});
-
-bot.on("synced", function () {
-  console.log("Bot ready.");
-  reply.to(owner).html("Bot Started.");
-});
-
-
 function rootHook(msg, reply, next) {
   if (msg.queued) return;
 
@@ -90,6 +80,14 @@ function rootHook(msg, reply, next) {
 bot.all(rootHook);
 bot.edited.all(rootHook);
 
+bot.on("updateError", function (err) {
+  console.error("Error when updating:", err);
+});
+
+bot.on("synced", function () {
+  console.log("Bot ready.");
+  reply.to(owner).html("Bot Started.");
+});
 
 // Replies
 bot.message(function (msg, reply, next) {
