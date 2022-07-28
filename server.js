@@ -84,7 +84,7 @@ bot.on("updateError", function (err) {
   console.error("Error when updating:", err);
 });
 
-bot.on("synced", function () {
+bot.on("synced", function (msg, reply, next) {
   console.log("Bot ready.");
   reply.to(owner).html("Bot Started.");
 });
