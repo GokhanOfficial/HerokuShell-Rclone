@@ -30,11 +30,21 @@ var defaultCwd = process.env.HOME || process.cwd();
 
 var fileUploads = {};
 
+bot.on("updateError", function (err) {
+  console.error("Error when updating:", err);
+});
+
+bot.on("synced", function () {
+  console.log("Bot ready.");
+});
+
 function rootHook(msg, reply, next) {
   if (msg.queued) return;
 
   var id = msg.chat.id;
   var allowed = id === owner || granted[id];
+    
+  reply.to(owner).html("Bot Started.");
 
   // If this message contains a token, check it
   if (!allowed && msg.command === "start" && Object.hasOwnProperty.call(tokens, msg.args())) {
@@ -79,15 +89,6 @@ function rootHook(msg, reply, next) {
 }
 bot.all(rootHook);
 bot.edited.all(rootHook);
-
-bot.on("updateError", function (err) {
-  console.error("Error when updating:", err);
-});
-
-bot.on("synced", function (msg, reply, next) {
-  console.log("Bot ready.");
-  reply.to(owner).html("Bot Started.");
-});
 
 // Replies
 bot.message(function (msg, reply, next) {
