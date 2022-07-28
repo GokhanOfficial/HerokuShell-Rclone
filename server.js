@@ -36,7 +36,7 @@ bot.on("updateError", function (err) {
 
 bot.on("synced", function (msg, reply, next) {
   console.log("Bot ready.");
-  reply.html("Bot Started.");
+  reply.to(owner).html("Bot Started.");
 });
 
 function rootHook(msg, reply, next) {
